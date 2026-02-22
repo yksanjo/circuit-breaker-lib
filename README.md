@@ -1,53 +1,84 @@
-# Circuit Breaker Library
+# circuit-breaker-lib
 
-Circuit breaker pattern implementation for Node.js to prevent cascading failures.
+## Detailed Description
 
-## Features
+circuit-breaker-lib is maintained as an industry-grade software project with production-ready engineering practices.  
+This repository includes documented setup, quality gates, operational guidance, and governance standards so contributors can safely build, test, and ship changes with confidence.
 
-- **Three States**: Closed, Open, Half-Open
-- **Automatic Recovery**: Transitions to half-open after recovery timeout
-- **Event Emission**: Built-in events for state changes
-- **Manager**: CircuitBreakerManager for multiple breakers
+## Problem Statement
 
-## Installation
+Describe the user or business problem this project solves, the target users, and expected outcomes.
+
+## Solution Overview
+
+Summarize the architecture, core modules, and runtime behavior at a high level.
+
+## Key Features
+
+- Clear project scope and intended use.
+- Reproducible local development workflow.
+- Test coverage and CI quality gates.
+- Security and contribution policies.
+- Deployment-ready repository structure.
+
+## Repository Structure
+
+```text
+.
+|-- src/                  # Core implementation
+|-- tests/                # Automated test suites
+|-- docs/                 # Design notes and operational docs
+|-- .github/workflows/    # CI pipelines
+|-- README.md
+|-- LICENSE
+|-- CONTRIBUTING.md
+|-- SECURITY.md
+|-- CODE_OF_CONDUCT.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Git
+- Project runtime/toolchain for this repo
+
+### Local Setup
 
 ```bash
-npm install circuit-breaker-lib
+npm ci
+npm run lint
+npm test
+npm run build
 ```
 
 ## Usage
 
-```typescript
-import { CircuitBreaker } from 'circuit-breaker-lib';
+Document primary commands, API routes, CLI examples, or UI workflows here.
 
-const breaker = new CircuitBreaker('my-service', {
-  failureThreshold: 5,
-  recoveryTimeout: 60000,
-  halfOpenAttempts: 3
-});
+## Quality Standards
 
-async function callService() {
-  if (!breaker.canExecute()) {
-    throw new Error('Circuit is open');
-  }
-  
-  try {
-    const result = await doSomething();
-    breaker.recordSuccess();
-    return result;
-  } catch (error) {
-    breaker.recordFailure();
-    throw error;
-  }
-}
-```
+- CI must pass before merge.
+- Changes require tests for critical behavior.
+- Security-sensitive changes should include risk notes.
+- Keep pull requests focused and reviewable.
 
-## States
+## Security
 
-- **Closed**: Normal operation, requests pass through
-- **Open**: Too many failures, requests are blocked
-- **Half-Open**: Testing recovery, limited requests allowed
+See `SECURITY.md` for responsible disclosure and handling guidelines.
+
+## Contributing
+
+See `CONTRIBUTING.md` for branching, commit, and pull request expectations.
+
+## Roadmap
+
+Track upcoming milestones, technical debt, and planned feature work.
+
+## Support
+
+Open a GitHub issue for bugs, feature requests, or documentation gaps.
 
 ## License
 
-MIT
+This project is released under the MIT License.
