@@ -1,5 +1,12 @@
 # circuit-breaker-lib
 
+Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/circuit-breaker-lib/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/circuit-breaker-lib/actions)
+![License](https://img.shields.io/github/license/yksanjo/circuit-breaker-lib)
+![Last Commit](https://img.shields.io/github/last-commit/yksanjo/circuit-breaker-lib)
+![Repo Size](https://img.shields.io/github/repo-size/yksanjo/circuit-breaker-lib)
+
 ## Detailed Description
 
 circuit-breaker-lib is maintained as an industry-grade software project with production-ready engineering practices.  
